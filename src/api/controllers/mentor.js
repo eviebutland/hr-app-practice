@@ -40,4 +40,14 @@ mentorRouter.get('/mentors:id', async (req, res, next) => {
 // Update 
 
 // Delete
+mentorRouter.delete('/mentors:id', (req, res, next) => {
+    try {
+        const returnedMentor = await mentor.findById(req.params.id)
+        
+    } catch (error) {
+        res.status(400).json({
+            message: 'Unable to delete mentor from database. Please check the ID is correct'
+        })
+    }
+})
 // Create
